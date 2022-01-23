@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    ports:
+        - "45000:80"
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+
+  cityapi:
+    image: ${DOCKER_REGISTRY-}cityapi
+    ports:
+        - "41000:80"
+    build:
+      context: .
+      dockerfile: CityApi/Dockerfile
+
+
+  userapi:
+    image: ${DOCKER_REGISTRY-}userapi
+    ports:
+        - "42000:80"
+    build:
+      context: .
+      dockerfile: UserApi/Dockerfile
+
+
+  authenticationserver:
+    image: ${DOCKER_REGISTRY-}authenticationserver
+    ports:
+        - "43000:80"
+    build:
+      context: .
+      dockerfile: AuthenticationServer/Dockerfile
+
